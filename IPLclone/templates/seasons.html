@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Match Seasons</h1>
+    <table border = "1">
+            <tr>
+                <th>Team1</th>
+                <th>Team2</th>
+                <th>Venue</th>
+                <th>Toss result</th>
+                <th>Toss Decision</th>
+                <th>Player Of Match</th>
+                <th>Information</th>
+            </tr>
+            <tbody id = "myTable">
+            {% for data in match %}
+            <tr>
+                <td>{{ data.team1 }}</td>
+                <td>{{ data.team2 }}</td>
+                <td>{{ data.venue }}</td>
+                <td>{{ data.toss_winner }}</td>
+                <td>{{ data.toss_decision }}</td>
+                <td>{{ data.player_of_match }}</td>
+                <td><a href = "{% url 'seasonDetails' data.match_id %}">MatchInfo</a></td>
+            </tr>
+            </tbody>
+            {% endfor %}
+            {% endblock %}
+</table>
